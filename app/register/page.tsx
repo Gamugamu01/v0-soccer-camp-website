@@ -1,43 +1,43 @@
-"use client";
+"use client"
 
-import type React from "react";
+import type React from "react"
 
-import { useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useState } from "react"
+import { useSearchParams } from "next/navigation"
 // 서버 액션 임포트
-import { saveToGoogleSheet } from "@/app/actions/register";
-import { Button } from "@/components/ui/button";
+import { saveToGoogleSheet } from "@/app/actions/register"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Checkbox } from "@/components/ui/checkbox"
+import { Separator } from "@/components/ui/separator"
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Separator } from "@/components/ui/separator";
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogFooter,
+} from "@/components/ui/dialog"
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { CheckCircle } from "lucide-react"
 
 export default function RegisterPage() {
-  const searchParams = useSearchParams();
-  const programParam = searchParams.get("program");
+  const searchParams = useSearchParams()
+  const programParam = searchParams.get("program")
 
   // 폼 상태 추가
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<{
-    success?: boolean;
-    message?: string;
-  }>({});
+    success?: boolean
+    message?: string
+  }>({})
+
+  const [waiverViewed, setWaiverViewed] = useState(false)
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -55,10 +55,10 @@ export default function RegisterPage() {
     emergencyPhone: "",
     medicalInfo: "",
     agreeTerms: false,
-  });
+  })
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target;
+    const { name, value, type, checked } = e.target
 
     if (type === "checkbox") {
       // Handle mutual exclusivity for experience checkboxes
@@ -68,80 +68,73 @@ export default function RegisterPage() {
           noExperience: true,
           varsityExperience: false,
           clubExperience: false,
-        }));
-      } else if (
-        (name === "varsityExperience" || name === "clubExperience") &&
-        checked
-      ) {
+        }))
+      } else if ((name === "varsityExperience" || name === "clubExperience") && checked) {
         setFormData((prev) => ({
           ...prev,
           [name]: checked,
           noExperience: false,
-        }));
+        }))
       } else {
         setFormData((prev) => ({
           ...prev,
           [name]: checked,
-        }));
+        }))
       }
     } else {
       setFormData((prev) => ({
         ...prev,
         [name]: value,
-      }));
+      }))
     }
-  };
+  }
 
   const handleSelectChange = (name: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
 
   // 폼 제출 핸들러 수정
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+    e.preventDefault()
+    setIsSubmitting(true)
 
     try {
       // 서버 액션 호출
-      const result = await saveToGoogleSheet(formData);
+      const result = await saveToGoogleSheet(formData)
 
       setSubmitStatus({
         success: result.success,
         message: result.message,
-      });
+      })
 
       // 저장 성공 시 결제 페이지로 리디렉션
       if (result.success) {
-        const playerName = `${formData.firstName} ${formData.lastName}`;
+        const playerName = `${formData.firstName} ${formData.lastName}`
         window.location.href = `/register/payment?name=${encodeURIComponent(
-          playerName
-        )}&program=${encodeURIComponent(formData.program)}`;
+          playerName,
+        )}&program=${encodeURIComponent(formData.program)}`
       }
     } catch (error) {
       setSubmitStatus({
         success: false,
         message: "Registration error occurred. Please try again later.",
-      });
+      })
     } finally {
-      setIsSubmitting(false);
+      setIsSubmitting(false)
     }
-  };
+  }
 
   return (
     <div className="container mx-auto px-4 py-16">
       <div className="max-w-3xl mx-auto text-center mb-12">
         <h1 className="text-4xl font-bold mb-4">Register for Soccer Camp</h1>
-        <p className="text-lg text-gray-600">
-          Complete the form below to secure your spot at our summer soccer camp.
-        </p>
+        <p className="text-lg text-gray-600">Complete the form below to secure your spot at our summer soccer camp.</p>
       </div>
 
       <Card className="max-w-3xl mx-auto">
         <CardHeader>
           <CardTitle>Registration Form</CardTitle>
-          <CardDescription>
-            June 16-20, 2025 at Allen Academy, Bryan, TX
-          </CardDescription>
+          <CardDescription>June 16-20, 2025 at Allen Academy, Bryan, TX</CardDescription>
         </CardHeader>
         <CardContent>
           {/* 제출 상태 메시지 표시 */}
@@ -163,23 +156,11 @@ export default function RegisterPage() {
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="firstName">First Name</Label>
-                  <Input
-                    id="firstName"
-                    name="firstName"
-                    value={formData.firstName}
-                    onChange={handleChange}
-                    required
-                  />
+                  <Input id="firstName" name="firstName" value={formData.firstName} onChange={handleChange} required />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="lastName">Last Name</Label>
-                  <Input
-                    id="lastName"
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={handleChange}
-                    required
-                  />
+                  <Input id="lastName" name="lastName" value={formData.lastName} onChange={handleChange} required />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="dateOfBirth">Date of Birth</Label>
@@ -196,9 +177,7 @@ export default function RegisterPage() {
                   <Label htmlFor="gender">Gender</Label>
                   <RadioGroup
                     defaultValue={formData.gender}
-                    onValueChange={(value) =>
-                      handleSelectChange("gender", value)
-                    }
+                    onValueChange={(value) => handleSelectChange("gender", value)}
                     className="flex space-x-4"
                   >
                     <div className="flex items-center space-x-2">
@@ -220,31 +199,20 @@ export default function RegisterPage() {
               <h3 className="text-lg font-medium mb-4">Program Selection</h3>
               <div className="space-y-2">
                 <Label htmlFor="program">Select Program</Label>
-                <Select
-                  defaultValue={formData.program}
-                  onValueChange={(value) =>
-                    handleSelectChange("program", value)
-                  }
-                >
+                <Select defaultValue={formData.program} onValueChange={(value) => handleSelectChange("program", value)}>
                   <SelectTrigger>
                     <SelectValue placeholder="Select a program" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="basic">
-                      Basic Training (Ages 8-13)
-                    </SelectItem>
-                    <SelectItem value="elite">
-                      Elite Training (Ages 8-13)
-                    </SelectItem>
-                    <SelectItem value="private">
-                      Private Training (Qualified Players Only)
-                    </SelectItem>
+                    <SelectItem value="basic">Basic Training (Ages 8-13)</SelectItem>
+                    <SelectItem value="elite">Elite Training (Ages 8-13)</SelectItem>
+                    <SelectItem value="private">Private Training (Qualified Players Only)</SelectItem>
                   </SelectContent>
                 </Select>
                 {formData.program === "private" && (
                   <p className="text-sm text-amber-600 mt-2">
-                    Note: Private Training is by application only. Our staff
-                    will review your application and contact you.
+                    Note: Private Training is by application only. Our staff will review your application and contact
+                    you.
                   </p>
                 )}
               </div>
@@ -254,12 +222,10 @@ export default function RegisterPage() {
 
             {formData.program === "private" && (
               <div>
-                <h3 className="text-lg font-medium mb-4">
-                  Player Experience Evaluation
-                </h3>
+                <h3 className="text-lg font-medium mb-4">Player Experience Evaluation</h3>
                 <p className="text-sm text-gray-600 mb-4">
-                  This information helps our coaches prepare for your private
-                  training sessions. Please select all that apply:
+                  This information helps our coaches prepare for your private training sessions. Please select all that
+                  apply:
                 </p>
                 <div className="space-y-3">
                   <div className="flex items-start space-x-2">
@@ -321,12 +287,12 @@ export default function RegisterPage() {
                             noExperience: true,
                             varsityExperience: false,
                             clubExperience: false,
-                          }));
+                          }))
                         } else {
                           setFormData((prev) => ({
                             ...prev,
                             noExperience: false,
-                          }));
+                          }))
                         }
                       }}
                     />
@@ -337,9 +303,7 @@ export default function RegisterPage() {
                       >
                         Does Not Apply
                       </Label>
-                      <p className="text-sm text-muted-foreground">
-                        Player does not have varsity or club experience
-                      </p>
+                      <p className="text-sm text-muted-foreground">Player does not have varsity or club experience</p>
                     </div>
                   </div>
                 </div>
@@ -349,9 +313,7 @@ export default function RegisterPage() {
             {formData.program === "private" && <Separator className="my-6" />}
 
             <div>
-              <h3 className="text-lg font-medium mb-4">
-                Parent/Guardian Information
-              </h3>
+              <h3 className="text-lg font-medium mb-4">Parent/Guardian Information</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="parentName">Parent/Guardian Name</Label>
@@ -365,25 +327,11 @@ export default function RegisterPage() {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="email">Email</Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                  />
+                  <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} required />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="phone">Phone Number</Label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                  />
+                  <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} required />
                 </div>
               </div>
             </div>
@@ -394,9 +342,7 @@ export default function RegisterPage() {
               <h3 className="text-lg font-medium mb-4">Emergency Contact</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="emergencyContact">
-                    Emergency Contact Name
-                  </Label>
+                  <Label htmlFor="emergencyContact">Emergency Contact Name</Label>
                   <Input
                     id="emergencyContact"
                     name="emergencyContact"
@@ -406,9 +352,7 @@ export default function RegisterPage() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="emergencyPhone">
-                    Emergency Contact Phone
-                  </Label>
+                  <Label htmlFor="emergencyPhone">Emergency Contact Phone</Label>
                   <Input
                     id="emergencyPhone"
                     name="emergencyPhone"
@@ -426,22 +370,97 @@ export default function RegisterPage() {
             <div>
               <h3 className="text-lg font-medium mb-4">Medical Information</h3>
               <div className="space-y-2">
-                <Label htmlFor="medicalInfo">
-                  Please list any medical conditions, allergies, or special
-                  needs
-                </Label>
-                <Input
-                  id="medicalInfo"
-                  name="medicalInfo"
-                  value={formData.medicalInfo}
-                  onChange={handleChange}
-                />
+                <Label htmlFor="medicalInfo">Please list any medical conditions, allergies, or special needs</Label>
+                <Input id="medicalInfo" name="medicalInfo" value={formData.medicalInfo} onChange={handleChange} />
               </div>
             </div>
 
             <Separator />
 
             <div className="space-y-4">
+              <div className="bg-amber-50 border border-amber-200 rounded-md p-4 mb-4">
+                <h4 className="font-medium text-amber-800 mb-2">Waiver Form Required</h4>
+                <p className="text-sm text-amber-700 mb-3">
+                  Please review and acknowledge our waiver form before completing registration.
+                </p>
+                <Dialog
+                  onOpenChange={(open) => {
+                    if (open === false) {
+                      setWaiverViewed(true)
+                    }
+                  }}
+                >
+                  <DialogTrigger asChild>
+                    <Button variant="outline" className="w-full">
+                      Open Waiver Form
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-3xl">
+                    <DialogHeader>
+                      <DialogTitle>SUMMER SOCCER CAMP WAIVER FORM</DialogTitle>
+                      <DialogDescription>Goals Sports Specific Training</DialogDescription>
+                    </DialogHeader>
+                    <ScrollArea className="max-h-[60vh] overflow-auto mt-4">
+                      <div className="space-y-4 p-1">
+                        <div>
+                          <h3 className="font-medium">Participant Information</h3>
+                          <p>
+                            Participant Name: {formData.firstName} {formData.lastName}
+                          </p>
+                          <p>Parent(s)/Guardian(s) Name: {formData.parentName}</p>
+                          <p>Home Phone: {formData.phone}</p>
+                          <p>
+                            Emergency Contact Name & Phone: {formData.emergencyContact}, {formData.emergencyPhone}
+                          </p>
+                        </div>
+
+                        <div>
+                          <h3 className="font-medium">Participant Waiver & Liability Agreement</h3>
+                          <p className="text-sm">
+                            I understand that there are risks associated with playing all sports and field related
+                            activities. In consideration for the privilege to use the facility and/or attend the
+                            camp/clinic, my signature indicates that I assume the risk of any injuries that myself or my
+                            children/wards may sustain while participating in any activity at Goals Sports Specific
+                            Training and for any injuries which myself or my children/wards may sustain while on the
+                            premises of Fair Haven Fields. I ensure that I am or my child is physically and mentally
+                            able to participate in physical activities and have been examined by a licensed medical
+                            physician within one (1) year prior to attending this clinic/camp.
+                          </p>
+                          <p className="text-sm mt-2">
+                            I give permission for camp trainers and coaches or contracted health care to start
+                            preliminary treatment and arrange transportation for me or my child to a local Emergency
+                            Room in the event that I or my child become(s) ill or injured.
+                          </p>
+                          <p className="text-sm mt-2">
+                            By signing this Waiver and Liability Agreement, I acknowledge that I HAVE READ AND FULLY
+                            UNDERSTAND AND AGREE TO ALL OF ITS TERMS AND CONDITIONS INCLUDING PERMISION TO TREAT
+                            AGREEMENT. I further state that I have executed this waiver and liability voluntarily and
+                            with full knowledge of its significance to be binding on my, my heirs, executors,
+                            administrators and assigns.
+                          </p>
+                        </div>
+
+                        <div className="border-t pt-4">
+                          <p className="font-medium">
+                            By checking the "I agree to the terms and conditions" box on the registration form, you are
+                            electronically signing this waiver.
+                          </p>
+                        </div>
+                      </div>
+                    </ScrollArea>
+                    <DialogFooter>
+                      <Button onClick={() => setWaiverViewed(true)}>I Have Read The Waiver</Button>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>
+
+                {waiverViewed && (
+                  <p className="text-sm text-green-600 mt-2 flex items-center">
+                    <CheckCircle className="h-4 w-4 mr-1" /> Waiver form has been reviewed
+                  </p>
+                )}
+              </div>
+
               <div className="flex items-start space-x-2">
                 <Checkbox
                   id="agreeTerms"
@@ -453,18 +472,19 @@ export default function RegisterPage() {
                       agreeTerms: checked as boolean,
                     }))
                   }
+                  disabled={!waiverViewed}
                   required
                 />
                 <div className="grid gap-1.5 leading-none">
                   <Label
                     htmlFor="agreeTerms"
-                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    className={`text-sm font-medium leading-none peer-disabled:cursor-not-allowed ${!waiverViewed ? "text-gray-400" : ""}`}
                   >
                     I agree to the terms and conditions
                   </Label>
-                  <p className="text-sm text-muted-foreground">
-                    By checking this box, you agree to our terms of service and
-                    privacy policy.
+                  <p className={`text-sm ${!waiverViewed ? "text-gray-400" : "text-muted-foreground"}`}>
+                    By checking this box, you agree to our terms of service, privacy policy, and the waiver form above.
+                    {!waiverViewed && <span className="text-amber-600 ml-1">Please review the waiver form first.</span>}
                   </p>
                 </div>
               </div>
@@ -476,9 +496,7 @@ export default function RegisterPage() {
                 className="w-full bg-green-600 hover:bg-green-700"
                 disabled={!formData.agreeTerms || isSubmitting}
               >
-                {isSubmitting
-                  ? "Processing Registration..."
-                  : "Complete Registration"}
+                {isSubmitting ? "Processing Registration..." : "Complete Registration"}
               </Button>
             </div>
           </form>
@@ -487,21 +505,12 @@ export default function RegisterPage() {
           <h3 className="font-medium mb-2">Registration Notes:</h3>
           <ul className="list-disc ml-5 space-y-1 text-sm text-gray-600">
             <li>Registration is not complete until payment is received</li>
-            <li>
-              A confirmation email will be sent once your registration is
-              processed
-            </li>
-            <li>
-              Space is limited and registrations are processed on a first-come,
-              first-served basis
-            </li>
-            <li>
-              For questions about registration, please contact us at
-              apexsportsagencykorea@gmail.com
-            </li>
+            <li>A confirmation email will be sent once your registration is processed</li>
+            <li>Space is limited and registrations are processed on a first-come, first-served basis</li>
+            <li>For questions about registration, please contact us at apexsportsagencykorea@gmail.com</li>
           </ul>
         </CardFooter>
       </Card>
     </div>
-  );
+  )
 }
