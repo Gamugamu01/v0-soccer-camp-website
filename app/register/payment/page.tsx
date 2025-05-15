@@ -119,8 +119,11 @@ export default function PaymentPage() {
                       <CreditCard className="h-4 w-4 text-green-600" />
                     </div>
                     <div>
-                      <h4 className="font-medium">PayPal Transfer</h4>
-                      <p className="text-sm text-gray-600">You can also send payment directly through PayPal.</p>
+                      <h4 className="font-medium">Zelle / PayPal</h4>
+                      <p className="text-sm text-gray-600">
+                        You can also send payment directly through Zelle or PayPal to:{" "}
+                        <span className="font-medium">piggyhousetx@gmail.com</span>
+                      </p>
                     </div>
                   </div>
                 </div>
