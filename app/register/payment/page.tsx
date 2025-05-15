@@ -81,8 +81,8 @@ export default function PaymentPage() {
               <div className="flex flex-col items-center">
                 <div className="border-4 border-green-100 p-2 rounded-xl mb-4 bg-white">
                   <Image
-                    src="/images/payment-qr-code.png"
-                    alt="Payment QR Code"
+                    src="/images/paypal-qr-code.png"
+                    alt="PayPal QR Code"
                     width={250}
                     height={250}
                     className="mx-auto"
@@ -108,9 +108,9 @@ export default function PaymentPage() {
                       <QrCode className="h-4 w-4 text-green-600" />
                     </div>
                     <div>
-                      <h4 className="font-medium">QR Code</h4>
+                      <h4 className="font-medium">PayPal QR Code</h4>
                       <p className="text-sm text-gray-600">
-                        Scan the QR code to access detailed payment instructions and options.
+                        Scan the PayPal QR code with your phone to make a secure payment.
                       </p>
                     </div>
                   </div>
@@ -119,8 +119,8 @@ export default function PaymentPage() {
                       <CreditCard className="h-4 w-4 text-green-600" />
                     </div>
                     <div>
-                      <h4 className="font-medium">Bank Transfer</h4>
-                      <p className="text-sm text-gray-600">Payment details are provided after scanning the QR code.</p>
+                      <h4 className="font-medium">PayPal Transfer</h4>
+                      <p className="text-sm text-gray-600">You can also send payment directly through PayPal.</p>
                     </div>
                   </div>
                 </div>
@@ -147,7 +147,7 @@ export default function PaymentPage() {
           <h2 className="text-xl font-bold mb-4">What Happens Next?</h2>
           <ol className="space-y-3 list-decimal ml-5">
             <li>
-              <span className="font-medium">Complete your payment</span> using the QR code above.{" "}
+              <span className="font-medium">Complete your payment</span> using the PayPal QR code above.{" "}
               <span className="text-green-700 font-medium">
                 Please include the player name under the memo or notes section when making the payment.
               </span>

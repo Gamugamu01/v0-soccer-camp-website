@@ -555,14 +555,14 @@ export default function Home() {
                   <div className="flex flex-col items-center">
                     <div className="border-4 border-green-100 p-2 rounded-xl mb-4 bg-white">
                       <Image
-                        src="/images/payment-qr-code.png"
-                        alt="Payment QR Code"
+                        src="/images/paypal-qr-code.png"
+                        alt="PayPal QR Code"
                         width={250}
                         height={250}
                         className="mx-auto"
                       />
                     </div>
-                    <p className="text-sm text-gray-500 text-center">Scan this QR code for payment instructions</p>
+                    <p className="text-sm text-gray-500 text-center">Scan this PayPal QR code to make payment</p>
                   </div>
 
                   <div className="space-y-4">
@@ -577,9 +577,9 @@ export default function Home() {
                           <QrCode className="h-4 w-4 text-green-600" />
                         </div>
                         <div>
-                          <h4 className="font-medium">QR Code</h4>
+                          <h4 className="font-medium">PayPal QR Code</h4>
                           <p className="text-sm text-gray-600">
-                            Scan the QR code to access detailed payment instructions and options.
+                            Scan the PayPal QR code with your phone to make a secure payment.
                           </p>
                         </div>
                       </div>
@@ -588,10 +588,8 @@ export default function Home() {
                           <CreditCard className="h-4 w-4 text-green-600" />
                         </div>
                         <div>
-                          <h4 className="font-medium">Bank Transfer</h4>
-                          <p className="text-sm text-gray-600">
-                            Payment details are provided after scanning the QR code or upon registration.
-                          </p>
+                          <h4 className="font-medium">PayPal Transfer</h4>
+                          <p className="text-sm text-gray-600">You can also send payment directly through PayPal.</p>
                         </div>
                       </div>
                     </div>
