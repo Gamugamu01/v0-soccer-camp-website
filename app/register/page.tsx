@@ -14,7 +14,6 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Separator } from "@/components/ui/separator"
-import { CheckCircle } from "lucide-react"
 
 export default function RegisterPage() {
   const searchParams = useSearchParams()
@@ -26,8 +25,6 @@ export default function RegisterPage() {
     success?: boolean
     message?: string
   }>({})
-
-  const [waiverViewed, setWaiverViewed] = useState(false)
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -368,121 +365,37 @@ export default function RegisterPage() {
             <Separator />
 
             <div className="space-y-4">
-              <div className="bg-red-50 border-l-4 border-red-500 p-4">
-                <p className="text-lg font-bold text-red-700">IMPORTANT</p>
-                <p className="text-red-700">
-                  You MUST fill out the waiver form and bring a physical copy to the first day of camp.
+              <div className="bg-amber-50 border border-amber-200 rounded-md p-4 mb-4">
+                <p className="text-amber-800 font-medium">
+                  Upon successful registration, a waiver form will be sent out in the confirmation email. You MUST bring
+                  a physical copy of the completed waiver form to the first day of the camp.
                 </p>
               </div>
 
-              <div className="border rounded-md p-4">
-                <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-lg font-medium">SUMMER SOCCER CAMP WAIVER FORM</h3>
-                  <Button
-                    variant="outline"
-                    className="flex items-center gap-2"
-                    onClick={() => setWaiverViewed(true)}
-                    asChild
+              <div className="flex items-start space-x-2">
+                <Checkbox
+                  id="agreeTerms"
+                  name="agreeTerms"
+                  checked={formData.agreeTerms}
+                  onCheckedChange={(checked) =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      agreeTerms: checked as boolean,
+                    }))
+                  }
+                  required
+                />
+                <div className="grid gap-1.5 leading-none">
+                  <Label
+                    htmlFor="agreeTerms"
+                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                   >
-                    <a href="/waiver-form.pdf" download="MeisterEliteSoccer-WaiverForm.pdf">
-                      Download PDF
-                    </a>
-                  </Button>
-                </div>
-
-                <div className="bg-gray-50 p-4 rounded-md mb-4">
-                  <h4 className="font-medium mb-2">Goals Sports Specific Training</h4>
-                  <div className="space-y-2 text-sm">
-                    <p>
-                      <strong>Participant Name:</strong> ________________________________________________________
-                    </p>
-                    <p>
-                      <strong>Parent(s)/Guardian(s) Name:</strong> _______________________________________________
-                    </p>
-                    <p>
-                      <strong>Home Phone:</strong> ______________________ <strong>Alt/Cell Phone:</strong>{" "}
-                      ________________________
-                    </p>
-                    <p>
-                      <strong>Emergency Contact Name & Phone:</strong> ________________________________________
-                    </p>
-                  </div>
-                </div>
-
-                <div className="space-y-3 text-sm">
-                  <h4 className="font-medium">Participant Waiver & Liability Agreement</h4>
-                  <p>
-                    I understand that there are risks associated with playing all sports and field related activities.
-                    In consideration for the privilege to use the facility and/or attend the camp/clinic, my signature
-                    indicates that I assume the risk of any injuries that myself or my children/wards may sustain while
-                    participating in any activity at Goals Sports Specific Training and for any injuries which myself or
-                    my children/wards may sustain while on the premises of Fair Haven Fields. I ensure that I am or my
-                    child is physically and mentally able to participate in physical activities and have been examined
-                    by a licensed medical physician within one (1) year prior to attending this clinic/camp.
-                  </p>
-                  <p>
-                    I give permission for camp trainers and coaches or contracted health care to start preliminary
-                    treatment and arrange transportation for me or my child to a local Emergency Room in the event that
-                    I or my child become(s) ill or injured.
-                  </p>
-                  <p>
-                    By signing this Waiver and Liability Agreement, I acknowledge that I HAVE READ AND FULLY UNDERSTAND
-                    AND AGREE TO ALL OF ITS TERMS AND CONDITIONS INCLUDING PERMISION TO TREAT AGREEMENT. I further state
-                    that I have executed this waiver and liability voluntarily and with full knowledge of its
-                    significance to be binding on my, my heirs, executors, administrators and assigns.
-                  </p>
-
-                  <div className="mt-4 pt-4 border-t">
-                    <p>____________________________________________________________</p>
-                    <p className="text-xs text-gray-500">Participant's Signature (Parent/Guardian if under 18) Date</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-amber-50 border border-amber-200 rounded-md p-4">
-                <div className="flex items-center gap-2">
-                  <Button variant="secondary" size="sm" onClick={() => setWaiverViewed(true)} className="shrink-0">
-                    I've Read The Waiver
-                  </Button>
-                  <p className="text-sm text-amber-700">
-                    Please click this button to confirm you've read the waiver form and understand you must bring a
-                    signed copy to camp.
+                    I agree to the terms and conditions
+                  </Label>
+                  <p className="text-sm text-muted-foreground">
+                    By checking this box, you agree to our terms of service and privacy policy.
                   </p>
                 </div>
-
-                {waiverViewed && (
-                  <p className="text-sm text-green-600 mt-2 flex items-center">
-                    <CheckCircle className="h-4 w-4 mr-1" /> Waiver form has been reviewed
-                  </p>
-                )}
-              </div>
-            </div>
-
-            <div className="flex items-start space-x-2">
-              <Checkbox
-                id="agreeTerms"
-                name="agreeTerms"
-                checked={formData.agreeTerms}
-                onCheckedChange={(checked) =>
-                  setFormData((prev) => ({
-                    ...prev,
-                    agreeTerms: checked as boolean,
-                  }))
-                }
-                disabled={!waiverViewed}
-                required
-              />
-              <div className="grid gap-1.5 leading-none">
-                <Label
-                  htmlFor="agreeTerms"
-                  className={`text-sm font-medium leading-none peer-disabled:cursor-not-allowed ${!waiverViewed ? "text-gray-400" : ""}`}
-                >
-                  I agree to the terms and conditions
-                </Label>
-                <p className={`text-sm ${!waiverViewed ? "text-gray-400" : "text-muted-foreground"}`}>
-                  By checking this box, you agree to our terms of service, privacy policy, and the waiver form above.
-                  {!waiverViewed && <span className="text-amber-600 ml-1">Please review the waiver form first.</span>}
-                </p>
               </div>
             </div>
 
