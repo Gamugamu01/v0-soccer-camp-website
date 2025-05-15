@@ -9,7 +9,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Apex Sports Agency USA Soccer Camp",
+  title: "Meister Soccer Camp",
   description:
     "Professional soccer camp in Bryan, TX for ages 8-18. Join us June 16-20, 2025 for basic, elite, and private training sessions.",
     generator: 'v0.dev'
