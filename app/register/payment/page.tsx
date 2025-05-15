@@ -164,6 +164,11 @@ export default function PaymentPage() {
               <span className="font-medium">Arrive at camp</span> on June 16, 2025 ready to elevate your game!
             </li>
           </ol>
+          <div className="mt-4 bg-red-50 border border-red-200 p-3 rounded-md">
+            <p className="text-red-700 font-bold">
+              Physical copy of the completed waiver form is REQUIRED in order to participate in the camp.
+            </p>
+          </div>
           <p className="mt-4 text-gray-600">
             If you have any questions, please contact us at{" "}
             <a href="mailto:meistercamptx@gmail.com" className="text-green-600 hover:underline">
