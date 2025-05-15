@@ -14,7 +14,7 @@ export default function Footer() {
               </div>
               <div>
                 <div className="font-bold text-xl text-white">Meister Elite Soccer</div>
-                <div className="text-xs text-gray-400">Apex Sports Agency USA</div>
+                <div className="text-xs text-gray-400">LLC number: 33-4616196</div>
               </div>
             </div>
             <p className="text-gray-400 mb-4">Professional soccer training for ages 8-18 in Bryan, Texas.</p>

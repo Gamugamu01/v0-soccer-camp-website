@@ -416,7 +416,7 @@ export default function RegisterPage() {
             <li>Registration is not complete until payment is received</li>
             <li>A confirmation email will be sent once your registration is processed</li>
             <li>Space is limited and registrations are processed on a first-come, first-served basis</li>
-            <li>For questions about registration, please contact us at apexsportsagencykorea@gmail.com</li>
+            <li>For questions about registration, please contact us at meistercamptx@gmail.com</li>
           </ul>
         </CardFooter>
       </Card>

@@ -140,8 +140,8 @@ export default function ContactPage() {
                 <div>
                   <h3 className="font-medium">Email</h3>
                   <p className="text-gray-600">
-                    <a href="mailto:apexsportsagencykorea@gmail.com" className="hover:text-green-600">
-                      apexsportsagencykorea@gmail.com
+                    <a href="mailto:meistercamptx@gmail.com" className="hover:text-green-600">
+                      meistercamptx@gmail.com
                     </a>
                   </p>
                 </div>

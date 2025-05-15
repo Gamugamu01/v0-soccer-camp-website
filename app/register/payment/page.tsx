@@ -166,8 +166,8 @@ export default function PaymentPage() {
           </ol>
           <p className="mt-4 text-gray-600">
             If you have any questions, please contact us at{" "}
-            <a href="mailto:apexsportsagencykorea@gmail.com" className="text-green-600 hover:underline">
-              apexsportsagencykorea@gmail.com
+            <a href="mailto:meistercamptx@gmail.com" className="text-green-600 hover:underline">
+              meistercamptx@gmail.com
             </a>
           </p>
         </div>
