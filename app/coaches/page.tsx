@@ -202,8 +202,7 @@ export default function CoachesPage() {
                     <div className="flex items-start gap-3">
                       <Users className="h-5 w-5 text-purple-600 mt-0.5 shrink-0" />
                       <div>
-                        <span className="font-medium">Role:</span> Overall camp management, player evaluations, and
-                        professional development opportunities
+                        <span className="font-medium">Role:</span> Volunteer
                       </div>
                     </div>
                   </div>
@@ -217,13 +216,6 @@ export default function CoachesPage() {
                       <p className="text-gray-700 text-sm">
                         Certified athletic trainer on-site during all sessions to handle any medical needs or
                         emergencies.
-                      </p>
-                    </div>
-                    <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                      <h4 className="font-medium mb-2">Camp Counselors</h4>
-                      <p className="text-gray-700 text-sm">
-                        Experienced youth mentors who assist with organization, supervision, and creating a positive
-                        environment.
                       </p>
                     </div>
                     <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
