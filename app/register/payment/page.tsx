@@ -39,11 +39,11 @@ export default function PaymentPage() {
   const getProgramPrice = (programCode: string | null) => {
     switch (programCode) {
       case "basic":
-        return "$349-$399"
+        return "$349"
       case "elite":
-        return "$449-$499"
+        return "$399"
       case "private":
-        return "$699"
+        return "$599"
       default:
         return "See program details"
     }

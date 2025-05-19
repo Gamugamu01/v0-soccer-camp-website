@@ -33,12 +33,7 @@ export default function ProgramsPage() {
               </div>
               <CardDescription>For beginners and intermediate players</CardDescription>
               <div className="mt-3 flex flex-wrap gap-2">
-                <span className="bg-green-100 text-green-800 text-sm font-bold px-3 py-1 rounded-full">
-                  $349 for Allen Academy students
-                </span>
-                <span className="bg-green-100 text-green-800 text-sm font-bold px-3 py-1 rounded-full">
-                  $399 for others
-                </span>
+                <span className="bg-green-100 text-green-800 text-sm font-bold px-3 py-1 rounded-full">$349</span>
               </div>
             </CardHeader>
             <CardContent className="pt-6">
@@ -136,12 +131,7 @@ export default function ProgramsPage() {
               </div>
               <CardDescription>For advanced players seeking a challenge</CardDescription>
               <div className="mt-3 flex flex-wrap gap-2">
-                <span className="bg-blue-100 text-blue-800 text-sm font-bold px-3 py-1 rounded-full">
-                  $449 for Allen Academy students
-                </span>
-                <span className="bg-blue-100 text-blue-800 text-sm font-bold px-3 py-1 rounded-full">
-                  $499 for others
-                </span>
+                <span className="bg-blue-100 text-blue-800 text-sm font-bold px-3 py-1 rounded-full">$399</span>
               </div>
             </CardHeader>
             <CardContent className="pt-6">
@@ -239,9 +229,7 @@ export default function ProgramsPage() {
               </div>
               <CardDescription>For qualified players only</CardDescription>
               <div className="mt-3 flex flex-wrap gap-2">
-                <span className="bg-purple-100 text-purple-800 text-sm font-bold px-3 py-1 rounded-full">
-                  $699 for two sessions
-                </span>
+                <span className="bg-purple-100 text-purple-800 text-sm font-bold px-3 py-1 rounded-full">$599</span>
               </div>
             </CardHeader>
             <CardContent className="pt-6">
