@@ -13,6 +13,9 @@ export default function ProgramsPage() {
           Our camp offers three distinct training programs designed to cater to different skill levels and development
           needs.
         </p>
+        <div className="mt-6 bg-red-50 border border-red-200 rounded-lg p-4">
+          <p className="text-red-800 font-bold text-lg">🔥 LIMITED TIME OFFER - SAVE $100 ON ALL PROGRAMS!</p>
+        </div>
       </div>
 
       <Tabs defaultValue="basic" className="max-w-4xl mx-auto">
@@ -23,7 +26,10 @@ export default function ProgramsPage() {
         </TabsList>
 
         <TabsContent value="basic" id="basic" className="mt-6">
-          <Card>
+          <Card className="relative">
+            <div className="absolute -top-3 -right-3 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold z-10">
+              SAVE $100!
+            </div>
             <CardHeader className="bg-green-50">
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
@@ -32,8 +38,14 @@ export default function ProgramsPage() {
                 <CardTitle className="text-2xl text-green-700">Basic Training Session</CardTitle>
               </div>
               <CardDescription>For beginners and intermediate players</CardDescription>
-              <div className="mt-3 flex flex-wrap gap-2">
-                <span className="bg-green-100 text-green-800 text-sm font-bold px-3 py-1 rounded-full">$349</span>
+              <div className="mt-3 flex flex-wrap gap-2 items-center">
+                <span className="bg-red-100 text-red-600 text-sm font-bold px-3 py-1 rounded-full line-through">
+                  $349
+                </span>
+                <span className="bg-green-100 text-green-800 text-xl font-bold px-4 py-2 rounded-full">$249</span>
+                <span className="bg-yellow-100 text-yellow-800 text-sm font-medium px-2 py-1 rounded-full">
+                  Save $100!
+                </span>
               </div>
             </CardHeader>
             <CardContent className="pt-6">
@@ -121,7 +133,10 @@ export default function ProgramsPage() {
         </TabsContent>
 
         <TabsContent value="elite" id="elite" className="mt-6">
-          <Card>
+          <Card className="relative">
+            <div className="absolute -top-3 -right-3 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold z-10">
+              SAVE $100!
+            </div>
             <CardHeader className="bg-blue-50">
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
@@ -130,8 +145,14 @@ export default function ProgramsPage() {
                 <CardTitle className="text-2xl text-blue-700">Basic + Elite Training Session</CardTitle>
               </div>
               <CardDescription>For advanced players seeking a challenge</CardDescription>
-              <div className="mt-3 flex flex-wrap gap-2">
-                <span className="bg-blue-100 text-blue-800 text-sm font-bold px-3 py-1 rounded-full">$399</span>
+              <div className="mt-3 flex flex-wrap gap-2 items-center">
+                <span className="bg-red-100 text-red-600 text-sm font-bold px-3 py-1 rounded-full line-through">
+                  $399
+                </span>
+                <span className="bg-blue-100 text-blue-800 text-xl font-bold px-4 py-2 rounded-full">$299</span>
+                <span className="bg-yellow-100 text-yellow-800 text-sm font-medium px-2 py-1 rounded-full">
+                  Save $100!
+                </span>
               </div>
             </CardHeader>
             <CardContent className="pt-6">
@@ -219,7 +240,10 @@ export default function ProgramsPage() {
         </TabsContent>
 
         <TabsContent value="private" id="private" className="mt-6">
-          <Card>
+          <Card className="relative">
+            <div className="absolute -top-3 -right-3 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold z-10">
+              SAVE $100!
+            </div>
             <CardHeader className="bg-purple-50">
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
@@ -228,8 +252,14 @@ export default function ProgramsPage() {
                 <CardTitle className="text-2xl text-purple-700">Private Training Session</CardTitle>
               </div>
               <CardDescription>For qualified players only</CardDescription>
-              <div className="mt-3 flex flex-wrap gap-2">
-                <span className="bg-purple-100 text-purple-800 text-sm font-bold px-3 py-1 rounded-full">$599</span>
+              <div className="mt-3 flex flex-wrap gap-2 items-center">
+                <span className="bg-red-100 text-red-600 text-sm font-bold px-3 py-1 rounded-full line-through">
+                  $599
+                </span>
+                <span className="bg-purple-100 text-purple-800 text-xl font-bold px-4 py-2 rounded-full">$499</span>
+                <span className="bg-yellow-100 text-yellow-800 text-sm font-medium px-2 py-1 rounded-full">
+                  Save $100!
+                </span>
               </div>
             </CardHeader>
             <CardContent className="pt-6">

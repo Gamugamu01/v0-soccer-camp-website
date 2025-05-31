@@ -39,13 +39,27 @@ export default function PaymentPage() {
   const getProgramPrice = (programCode: string | null) => {
     switch (programCode) {
       case "basic":
+        return "$249"
+      case "elite":
+        return "$299"
+      case "private":
+        return "$499"
+      default:
+        return "See program details"
+    }
+  }
+
+  // Get original price for display
+  const getOriginalPrice = (programCode: string | null) => {
+    switch (programCode) {
+      case "basic":
         return "$349"
       case "elite":
         return "$399"
       case "private":
         return "$599"
       default:
-        return "See program details"
+        return ""
     }
   }
 
@@ -72,8 +86,11 @@ export default function PaymentPage() {
               <CreditCard className="h-5 w-5 text-green-600" />
               Complete Your Payment
             </CardTitle>
-            <CardDescription>
-              {getProgramName(program)} - {getProgramPrice(program)}
+            <CardDescription className="flex items-center gap-2">
+              {getProgramName(program)} -
+              <span className="line-through text-red-600 ml-2">{getOriginalPrice(program)}</span>
+              <span className="font-bold text-green-600 text-lg">{getProgramPrice(program)}</span>
+              <span className="bg-red-500 text-white px-2 py-1 rounded text-sm font-bold ml-2">SAVE $100!</span>
             </CardDescription>
           </CardHeader>
           <CardContent>

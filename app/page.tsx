@@ -62,11 +62,11 @@ export default function Home() {
       </section>
 
       {/* Announcement Banner */}
-      <section className="bg-amber-50 border-y border-amber-200">
+      <section className="bg-red-50 border-y border-red-200">
         <div className="container mx-auto px-4 py-4 text-center">
-          <p className="text-amber-800 font-medium">
-            <span className="font-bold">Limited spots available!</span> Register early to secure your place in our elite
-            soccer camp.
+          <p className="text-red-800 font-medium">
+            <span className="font-bold">🔥 LIMITED TIME OFFER!</span> Save up to $100 on all training programs. Register
+            now before spots fill up!
           </p>
         </div>
       </section>
@@ -154,15 +154,21 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-t-4 border-t-green-600">
+            <Card className="border-t-4 border-t-green-600 relative">
+              <div className="absolute -top-3 -right-3 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold z-10">
+                SAVE $100!
+              </div>
               <CardHeader className="pb-4">
                 <CardTitle className="flex items-center gap-2">
                   <Users className="h-5 w-5 text-green-600" />
                   Basic Training
                 </CardTitle>
                 <CardDescription>For beginners and intermediate players</CardDescription>
-                <div className="mt-2 flex flex-wrap gap-2">
-                  <span className="bg-green-100 text-green-800 text-sm font-bold px-3 py-1 rounded-full">$349</span>
+                <div className="mt-2 flex flex-wrap gap-2 items-center">
+                  <span className="bg-red-100 text-red-600 text-sm font-bold px-3 py-1 rounded-full line-through">
+                    $349
+                  </span>
+                  <span className="bg-green-100 text-green-800 text-lg font-bold px-3 py-1 rounded-full">$249</span>
                 </div>
               </CardHeader>
               <CardContent>
@@ -194,15 +200,21 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className="border-t-4 border-t-blue-600">
+            <Card className="border-t-4 border-t-blue-600 relative">
+              <div className="absolute -top-3 -right-3 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold z-10">
+                SAVE $100!
+              </div>
               <CardHeader className="pb-4">
                 <CardTitle className="flex items-center gap-2">
                   <Award className="h-5 w-5 text-blue-600" />
                   Basic + Elite Training
                 </CardTitle>
                 <CardDescription>For advanced players seeking a challenge</CardDescription>
-                <div className="mt-2 flex flex-wrap gap-2">
-                  <span className="bg-blue-100 text-blue-800 text-sm font-bold px-3 py-1 rounded-full">$399</span>
+                <div className="mt-2 flex flex-wrap gap-2 items-center">
+                  <span className="bg-red-100 text-red-600 text-sm font-bold px-3 py-1 rounded-full line-through">
+                    $399
+                  </span>
+                  <span className="bg-blue-100 text-blue-800 text-lg font-bold px-3 py-1 rounded-full">$299</span>
                 </div>
               </CardHeader>
               <CardContent>
@@ -234,15 +246,21 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className="border-t-4 border-t-purple-600">
+            <Card className="border-t-4 border-t-purple-600 relative">
+              <div className="absolute -top-3 -right-3 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold z-10">
+                SAVE $100!
+              </div>
               <CardHeader className="pb-4">
                 <CardTitle className="flex items-center gap-2">
                   <Star className="h-5 w-5 text-purple-600" />
                   Private Training
                 </CardTitle>
                 <CardDescription>For qualified players only</CardDescription>
-                <div className="mt-2 flex flex-wrap gap-2">
-                  <span className="bg-purple-100 text-purple-800 text-sm font-bold px-3 py-1 rounded-full">$599</span>
+                <div className="mt-2 flex flex-wrap gap-2 items-center">
+                  <span className="bg-red-100 text-red-600 text-sm font-bold px-3 py-1 rounded-full line-through">
+                    $599
+                  </span>
+                  <span className="bg-purple-100 text-purple-800 text-lg font-bold px-3 py-1 rounded-full">$499</span>
                 </div>
               </CardHeader>
               <CardContent>
