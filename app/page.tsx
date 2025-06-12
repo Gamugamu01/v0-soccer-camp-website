@@ -61,102 +61,72 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Cancellation Banner */}
-      <section className="bg-red-600 border-y border-red-700">
-        <div className="container mx-auto px-4 py-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Summer Soccer Camp Cancelled</h2>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 text-white">
-              <p className="text-lg md:text-xl leading-relaxed mb-4">
-                Due to unforeseen circumstances, we've made the difficult decision to cancel this summer's soccer camp.
-                All registrants will receive a full refund, and we'll be contacting you directly to process it.
-              </p>
-              <p className="text-lg md:text-xl leading-relaxed mb-4">
-                We appreciate your support and hope to see you at future events. For any questions, feel free to reach
-                out.
-              </p>
-              <p className="text-lg font-semibold">— The Meister Soccer Camp Team</p>
-              <div className="mt-6">
-                <a
-                  href="mailto:meistercamptx@gmail.com"
-                  className="inline-flex items-center px-6 py-3 bg-white text-red-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors"
-                >
-                  Contact Us for Questions
-                </a>
+      {/* Rest of the content with reduced opacity */}
+      {/* Training Images Section */}
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="relative h-80 rounded-xl overflow-hidden">
+              <Image src="/images/camp-image2.png" alt="Soccer training session" fill className="object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 p-6 text-white">
+                <h3 className="text-xl font-bold mb-2">Professional Training Environment</h3>
+                <p>Develop skills through structured drills and game scenarios</p>
+              </div>
+            </div>
+            <div className="relative h-80 rounded-xl overflow-hidden">
+              <Image
+                src="/images/camp-image1.png"
+                alt="Soccer skills development"
+                fill
+                className="object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 p-6 text-white">
+                <h3 className="text-xl font-bold mb-2">Technical Skills Focus</h3>
+                <p>Master ball control, passing, and shooting techniques</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Rest of the content with reduced opacity */}
-      <div className="opacity-75">
-        {/* Training Images Section */}
-        <section className="py-12 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="relative h-80 rounded-xl overflow-hidden">
-                <Image src="/images/camp-image2.png" alt="Soccer training session" fill className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 p-6 text-white">
-                  <h3 className="text-xl font-bold mb-2">Professional Training Environment</h3>
-                  <p>Develop skills through structured drills and game scenarios</p>
-                </div>
-              </div>
-              <div className="relative h-80 rounded-xl overflow-hidden">
+      {/* Featured Coach */}
+      <section className="py-12 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="flex flex-col md:flex-row items-center gap-8 bg-blue-50 rounded-xl overflow-hidden border border-blue-100">
+              <div className="md:w-1/3 relative h-64 md:h-auto overflow-hidden bg-blue-900">
                 <Image
-                  src="/images/camp-image1.png"
-                  alt="Soccer skills development"
-                  fill
-                  className="object-cover object-center"
+                  src="/images/pere-marti.png"
+                  alt="Pere Marti"
+                  width={400}
+                  height={500}
+                  className="object-cover h-full w-full"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 p-6 text-white">
-                  <h3 className="text-xl font-bold mb-2">Technical Skills Focus</h3>
-                  <p>Master ball control, passing, and shooting techniques</p>
-                </div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Featured Coach */}
-        <section className="py-12 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <div className="max-w-5xl mx-auto">
-              <div className="flex flex-col md:flex-row items-center gap-8 bg-blue-50 rounded-xl overflow-hidden border border-blue-100">
-                <div className="md:w-1/3 relative h-64 md:h-auto overflow-hidden bg-blue-900">
-                  <Image
-                    src="/images/pere-marti.png"
-                    alt="Pere Marti"
-                    width={400}
-                    height={500}
-                    className="object-cover h-full w-full"
-                  />
+              <div className="md:w-2/3 p-6 md:p-8">
+                <div className="flex flex-wrap gap-2 mb-3">
+                  <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">
+                    La Liga Experience
+                  </span>
+                  <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">
+                    UEFA Cup Veteran
+                  </span>
+                  <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">
+                    Professional Coach
+                  </span>
                 </div>
-                <div className="md:w-2/3 p-6 md:p-8">
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">
-                      La Liga Experience
-                    </span>
-                    <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">
-                      UEFA Cup Veteran
-                    </span>
-                    <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">
-                      Professional Coach
-                    </span>
-                  </div>
-                  <h2 className="text-2xl font-bold mb-2">Meet your coach - Pere Marti, Former La Liga Professional</h2>
-                  <ul className="text-gray-700 mb-4 space-y-2 list-disc pl-5">
-                    <li>Former player at Villareal CF (2003-2004)</li>
-                    <li>Former manager at Villareal CF C (2017-2022)</li>
-                    <li>Former player at Málaga CF (2008-2010)</li>
-                    <li>UEFA Pro-license</li>
-                  </ul>
-                  <Button asChild className="bg-blue-600 hover:bg-blue-700">
-                    <Link href="/coaches">Meet Our Coaching Staff</Link>
-                  </Button>
-                </div>
+                <h2 className="text-2xl font-bold mb-2">Meet your coach - Pere Marti, Former La Liga Professional</h2>
+                <ul className="text-gray-700 mb-4 space-y-2 list-disc pl-5">
+                  <li>Former player at Villareal CF (2003-2004)</li>
+                  <li>Former manager at Villareal CF C (2017-2022)</li>
+                  <li>Former player at Málaga CF (2008-2010)</li>
+                  <li>UEFA Pro-license</li>
+                </ul>
+                <Button asChild className="bg-blue-600 hover:bg-blue-700">
+                  <Link href="/coaches">Meet Our Coaching Staff</Link>
+                </Button>
               </div>
             </div>
           </div>
@@ -746,7 +716,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-      </div>
     </div>
   )
 }
