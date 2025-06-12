@@ -35,6 +35,14 @@ export default function Home() {
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight">
               Meister Elite Soccer Summer Camp 2025
             </h1>
+            <div className="bg-red-600 border-2 border-red-400 rounded-lg p-6 mb-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">Summer Soccer Camp Cancelled</h2>
+              <p className="text-lg md:text-xl text-white leading-relaxed">
+                Due to unforeseen circumstances, we've made the difficult decision to cancel this summer's soccer camp.
+                All registrants will receive a full refund, and we'll be contacting you directly to process it. We
+                appreciate your support and hope to see you at future events.
+              </p>
+            </div>
             <p className="text-xl md:text-2xl text-white/90 mb-8">
               Professional soccer training for youth players in Bryan, Texas
             </p>
@@ -639,83 +647,84 @@ export default function Home() {
                   </div>
                   <div className="bg-white p-4 rounded-lg border">
                     <h3 className="font-medium text-lg">Is there a refund policy?</h3>
-                    <p className="text-gray-600 mt-2">
-                      Full refunds are available up to 14 days before the camp. 50% refunds are available up to 7 days
-                      before. No refunds are available after that.
-                    </p>
-                  </div>
-                </TabsContent>
-                <TabsContent value="programs" className="mt-6 space-y-4">
-                  <div className="bg-white p-4 rounded-lg border">
-                    <h3 className="font-medium text-lg">What's the difference between Basic and Elite training?</h3>
-                    <p className="text-gray-600 mt-2">
-                      Basic Training focuses on fundamental skills in a fun environment, while Elite Training offers
-                      more intensive sessions with tactical elements and game scenarios for advanced players.
-                    </p>
-                  </div>
-                  <div className="bg-white p-4 rounded-lg border">
-                    <h3 className="font-medium text-lg">How are players grouped during training?</h3>
-                    <p className="text-gray-600 mt-2">
-                      Players are grouped by age (8-10 and 11-13) and skill level to ensure appropriate training and
-                      development.
-                    </p>
-                  </div>
-                  <div className="bg-white p-4 rounded-lg border">
-                    <h3 className="font-medium text-lg">How do I qualify for Private Training?</h3>
-                    <p className="text-gray-600 mt-2">
-                      Private Training is by application only. Our coaching staff will review applications based on
-                      player experience, skill level, and development goals.
-                    </p>
-                  </div>
-                </TabsContent>
-                <TabsContent value="logistics" className="mt-6 space-y-4">
-                  <div className="bg-white p-4 rounded-lg border">
-                    <h3 className="font-medium text-lg">What should my child bring to camp?</h3>
-                    <p className="text-gray-600 mt-2">
-                      Players should bring soccer cleats, shin guards, a soccer ball, water bottle, sunscreen, and
-                      appropriate training clothes. A full list will be provided upon registration.
-                    </p>
-                  </div>
-                  <div className="bg-white p-4 rounded-lg border">
-                    <h3 className="font-medium text-lg">Is lunch provided?</h3>
-                    <p className="text-gray-600 mt-2">
-                      Lunch is not provided. Players should bring their own snacks and lunch if attending multiple
-                      sessions.
-                    </p>
-                  </div>
-                  <div className="bg-white p-4 rounded-lg border">
-                    <h3 className="font-medium text-lg">Is there medical staff on site?</h3>
-                    <p className="text-gray-600 mt-2">
-                      Yes, we have certified athletic trainers on site during all camp sessions to handle any medical
-                      needs or emergencies.
-                    </p>
-                  </div>
-                </TabsContent>
-              </Tabs>
+                  </cut_off_point>
+                  <p className="text-gray-600 mt-2">
+                    Full refunds are available up to 14 days before the camp. 50% refunds are available up to 7 days
+                    before. No refunds are available after that.
+                  </p>
+                </div>
+              </TabsContent>
+              <TabsContent value="programs" className="mt-6 space-y-4">
+                <div className="bg-white p-4 rounded-lg border">
+                  <h3 className="font-medium text-lg">What's the difference between Basic and Elite training?</h3>
+                  <p className="text-gray-600 mt-2">
+                    Basic Training focuses on fundamental skills in a fun environment, while Elite Training offers more
+                    intensive sessions with tactical elements and game scenarios for advanced players.
+                  </p>
+                </div>
+                <div className="bg-white p-4 rounded-lg border">
+                  <h3 className="font-medium text-lg">How are players grouped during training?</h3>
+                  <p className="text-gray-600 mt-2">
+                    Players are grouped by age (8-10 and 11-13) and skill level to ensure appropriate training and
+                    development.
+                  </p>
+                </div>
+                <div className="bg-white p-4 rounded-lg border">
+                  <h3 className="font-medium text-lg">How do I qualify for Private Training?</h3>
+                  <p className="text-gray-600 mt-2">
+                    Private Training is by application only. Our coaching staff will review applications based on player
+                    experience, skill level, and development goals.
+                  </p>
+                </div>
+              </TabsContent>
+              <TabsContent value="logistics" className="mt-6 space-y-4">
+                <div className="bg-white p-4 rounded-lg border">
+                  <h3 className="font-medium text-lg">What should my child bring to camp?</h3>
+                  <p className="text-gray-600 mt-2">
+                    Players should bring soccer cleats, shin guards, a soccer ball, water bottle, sunscreen, and
+                    appropriate training clothes. A full list will be provided upon registration.
+                  </p>
+                </div>
+                <div className="bg-white p-4 rounded-lg border">
+                  <h3 className="font-medium text-lg">Is lunch provided?</h3>
+                  <p className="text-gray-600 mt-2">
+                    Lunch is not provided. Players should bring their own snacks and lunch if attending multiple
+                    sessions.
+                  </p>
+                </div>
+                <div className="bg-white p-4 rounded-lg border">
+                  <h3 className="font-medium text-lg">Is there medical staff on site?</h3>
+                  <p className="text-gray-600 mt-2">
+                    Yes, we have certified athletic trainers on site during all camp sessions to handle any medical
+                    needs or emergencies.
+                  </p>
+                </div>
+              </TabsContent>
+            </Tabs>
 
-              <div className="text-center mt-8">
-                <Button asChild variant="outline">
-                  <Link href="/faq">View All FAQs</Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-r from-green-600 to-green-800 text-white">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Elevate Your Game?</h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Spaces are limited for each training program. Secure your spot today!
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button asChild size="lg" className="bg-white text-green-800 hover:bg-white/90">
-                <Link href="/register">Register Now</Link>
+            <div className="text-center mt-8">
+              <Button asChild variant="outline">
+                <Link href="/faq">View All FAQs</Link>
               </Button>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-gradient-to-r from-green-600 to-green-800 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Elevate Your Game?</h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto">
+            Spaces are limited for each training program. Secure your spot today!
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Button asChild size="lg" className="bg-white text-green-800 hover:bg-white/90">
+              <Link href="/register">Register Now</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
